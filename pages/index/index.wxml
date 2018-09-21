@@ -10,7 +10,7 @@
 <button bindtap='copy' style='height:50rpx;line-height:50rpx;'>复制</button>
 
 <view class='items-list'>
-  <view class='pro-item' wx:for="{{proList}}" bindtap='toDetail' data-index='{{index}}'>
+  <view class='pro-item' wx:for="{{proList}}" bind:tap="toDetail" data-index='{{index}}' >
     <image class='pro-logo' src="{{item.img}}"></image>
     <view class='pro-body'>
       <view class='pro-title'>{{item.title}}</view>
