@@ -1,4 +1,7 @@
 // pages/detail/detail.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -13,6 +16,8 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    console.log(app.globalData)
+    console.log(wx.getStorageSync('store'))
   },
 
   /**

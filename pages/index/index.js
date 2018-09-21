@@ -26,12 +26,12 @@ Page({
       test: '01'
     })
     this._getProList()
+    // console.log(app)
     // console.log(wx.getSystemInfoSync())
   },
   toDetail: function (e) {
-    // console.log(e)
     var index = e.currentTarget.dataset.index
-    // console.log(index)
+    wx.setStorageSync('store', 'store-data')
     wx.navigateTo({
       url: '/pages/detail/detail?id=' + index
     })
@@ -39,7 +39,7 @@ Page({
   _getProList () {
     var _this = this
     wx.request({
-      url: 'https://easy-mock.com/mock/5a1152db868584562f60c7b5/example/wx-proList',
+      url: app.globalData.baseUrl + '/wx-proList',
       method: 'GET',
       success: function (res) {
         _this.setData({
