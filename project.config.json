@@ -1,0 +1,55 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.3",
+	"appid": "wx1e2e4bdb687c485f",
+	"projectname": "littleProject",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "logs",
+					"pathName": "pages/logs/logs",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "join",
+					"pathName": "pages/join/join",
+					"query": "",
+					"scene": "1001"
+				}
+			]
+		}
+	}
+}
