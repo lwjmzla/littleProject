@@ -1,26 +1,4 @@
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="yellow" circular="true">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item>
-      <image src="{{item}}" class="slide-image" width="355" height="150"/>
-    </swiper-item>
-  </block>
-</swiper>
-
-<button bindtap='copy' style='height:50rpx;line-height:50rpx;'>复制</button>
-
-<view class='items-list'>
-  <view class='pro-item' wx:for="{{proList}}" bind:tap="toDetail" data-index='{{index}}' >
-    <image class='pro-logo' src="{{item.img}}"></image>
-    <view class='pro-body'>
-      <view class='pro-title'>{{item.title}}</view>
-      <text class='pro-desc'>{{item.desc}}</text>
-      <view class='pro-footer'>
-        <image class='btn-detail' src='/images/btn_detail.png'></image>
-        <button open-type="contact" class='btn-ask'>
-          <image src='/images/btn_ask.png'></image>
-        </button>
-      </view>
-    </view>
-  </view>
+<v-like></v-like>
+<view class="container">
+  1111
 </view>

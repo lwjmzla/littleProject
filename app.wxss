@@ -1,4 +1,9 @@
-/**app.wxss**/
+/**app.wxss   class id样式只对页面生效，标签样式对全局生效**/
+
+/*page相当于body*/
+page{
+}
+
 .container {
   height: 100%;
   display: flex;
