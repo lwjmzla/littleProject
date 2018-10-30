@@ -1,4 +1,5 @@
 // components/like/index.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -18,7 +19,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    msg: '111'
+    likeSrc: './images/like.png',
+    dislikeSrc: './images/like@dis.png'
   },
 
   /**

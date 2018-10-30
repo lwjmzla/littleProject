@@ -1,11 +1,12 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/index/index",
+    "pages/demo/demo"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#2E5E86",
-    "navigationBarTitleText": "信贷DEMO",
+    "navigationBarTitleText": "旧岛小样",
     "navigationBarTextStyle":"white"
   }
 }

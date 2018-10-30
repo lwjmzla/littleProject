@@ -1,4 +1,4 @@
-/**app.wxss   class id样式只对页面生效，标签样式对全局生效**/
+/**app.wxss   class id样式只对页面生效，标签样式对全局生效，包括组件**/
 
 /*page相当于body*/
 page{
