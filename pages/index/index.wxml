@@ -1,4 +1,5 @@
-<v-like></v-like>
+<v-like like="{{classic.like_status}}" count="{{classic.fav_nums}}" classic="{{classic}}"></v-like>
+<v-movie img="{{classic.image}}" content='{{classic.content}}'></v-movie>
 <view class="container">
   111122
 </view>

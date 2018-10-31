@@ -1,4 +1,5 @@
 // components/like/index.js
+import { reqLike, reqLikeCancel} from '../../api/index.js'
 const app = getApp()
 Component({
   /**
@@ -12,7 +13,8 @@ Component({
     like: {
       type: Boolean,
       value: false
-    }
+    },
+    classic: Object
   },
 
   /**
@@ -28,13 +30,26 @@ Component({
    */
   methods: {
     onLike (ev) {
+      const classicId = this.properties.classic.id
+      const classicType = this.properties.classic.type
       let count = this.properties.count
       let like = this.properties.like
-      count = like ? --count : ++count
-      like = !like
-      this.setData({
-        count,
-        like
+      let promise
+      if (like) {
+        promise = reqLikeCancel(classicId, classicType)
+      } else {
+        promise = reqLike(classicId, classicType)
+      }
+      promise.then((res) => {
+        console.log(res)
+        if (res.error_code === 0) {
+          count = like ? --count : ++count
+          like = !like
+          this.setData({
+            count,
+            like
+          })
+        }
       })
     }
   }

@@ -2,6 +2,8 @@
 
 /*page相当于body*/
 page{
+  font-family: PingFangSC-Thin; 
+  font-size:16px;
 }
 
 .container {

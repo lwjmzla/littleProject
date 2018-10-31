@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test: 1
+    test: 1,
+    classic: null
   },
 
   /**
@@ -18,6 +19,10 @@ Page({
   onLoad: function (options) {
     getClassicLatest().then((res) => {
       console.log(res)
+      // const like = res.like_status === 1 ? true : false
+      this.setData({
+        classic: res
+      })
     })
   },
 
