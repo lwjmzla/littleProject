@@ -14,7 +14,12 @@ Component({
       type: Boolean,
       value: false
     },
-    classic: Object
+    likeId: {
+      type: Number
+    },
+    likeType: {
+      type: Number
+    }
   },
 
   /**
@@ -30,15 +35,15 @@ Component({
    */
   methods: {
     onLike (ev) {
-      const classicId = this.properties.classic.id
-      const classicType = this.properties.classic.type
+      const id = this.properties.likeId
+      const likeType = this.properties.likeType
       let count = this.properties.count
       let like = this.properties.like
       let promise
       if (like) {
-        promise = reqLikeCancel(classicId, classicType)
+        promise = reqLikeCancel(id, likeType)
       } else {
-        promise = reqLike(classicId, classicType)
+        promise = reqLike(id, likeType)
       }
       promise.then((res) => {
         console.log(res)

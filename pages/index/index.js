@@ -10,9 +10,9 @@ Page({
    */
   data: {
     classic: null,
-    index: null,
-    month: null,
-    year: null
+    episode: {},
+    latest: true,
+    first: false
   },
 
   /**
@@ -78,12 +78,20 @@ Page({
   },
   _setEpisodeData: function (val) {
     const index = val < 10 ? '0' + val : val
-    const month = new Date().getMonth() + 1
+    const month = new Date().getMonth() + 1 + '月'
     const year = new Date().getFullYear()
     this.setData({
-      index,
-      month,
-      year
+      episode: {
+        index,
+        month,
+        year
+      }
     })
+  },
+  leftClick () {
+    console.log('left')
+  },
+  rightClick () {
+    console.log('right')
   }
 })

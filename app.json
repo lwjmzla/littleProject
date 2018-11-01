@@ -5,8 +5,8 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#2E5E86",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "旧岛小样",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"black"
   }
 }
