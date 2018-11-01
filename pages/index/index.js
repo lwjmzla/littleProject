@@ -9,8 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test: 1,
-    classic: null
+    classic: null,
+    index: null,
+    month: null,
+    year: null
   },
 
   /**
@@ -19,10 +21,10 @@ Page({
   onLoad: function (options) {
     getClassicLatest().then((res) => {
       console.log(res)
-      // const like = res.like_status === 1 ? true : false
       this.setData({
         classic: res
       })
+      this._setEpisodeData(res.index)
     })
   },
 
@@ -73,5 +75,15 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  _setEpisodeData: function (val) {
+    const index = val < 10 ? '0' + val : val
+    const month = new Date().getMonth() + 1
+    const year = new Date().getFullYear()
+    this.setData({
+      index,
+      month,
+      year
+    })
   }
 })

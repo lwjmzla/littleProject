@@ -1,49 +1,53 @@
-swiper {
-  width: 100%;
-  height: 340rpx;
+/* components/epsoide/epsoide-cmp.wxss */
+.index{
+  font-size:30px;
+  /* line-height:20px;  */
+  font-weight:800;
+  margin-right:7px;
 }
-swiper image {
-  display: block;
-  width: 100%;
-  height: 100%;
+
+.vertical-line{
+  margin-right:7px;
+  height:22px;
+  border-left:1px solid black;
 }
-.pro-item {
-  overflow: hidden;
-  padding: 30rpx;
+
+.plain{
+  font-size:16px;
 }
-.pro-logo {
-  float: left;
-  width: 190rpx;
-  height: 190rpx;
+
+.episode{
+  display:inline-flex;
+  flex-direction: row;
+  line-height: 30px;
+  /* justify-content: flex-end; */
+   /* align-items: baseline;       */
 }
-.pro-body {
-  margin-left: 210rpx;
+
+.index-container{
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;      
 }
-.pro-title {
-  color: #212121;
-  font-size: 34rpx;
-  line-height: 1;
+
+.date{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  /* align-items: baseline; */
+   /* line-height:30px;   */
 }
-.pro-desc {
-  font-size: 28rpx;
-  color: #9a9a9a;
-  line-height: 1;
+
+.month{
+  font-size:12px;
+  line-height:12px; 
+  padding-bottom: 2px; 
+  margin-right:2rpx;
+  /* padding-right:4rpx; */
 }
-.pro-footer {
-  overflow: hidden;
-}
-.btn-detail {
-  width: 170rpx;
-  height: 52rpx;
-  float: left;
-}
-.btn-ask {
-  width: 224rpx;
-  height: 52rpx;
-  float: left;
-  margin-left: 20rpx;
-}
-.btn-ask image {
-  width: 100%;
-  height: 100%;
+
+.year{
+  font-size:10px;
+  line-height:10px; 
+  padding-bottom:3px;   
 }
