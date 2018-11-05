@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import { getClassicLatest } from '../../api/index.js'
+import { getClassicLatest, getClassicPrevious, getClassicNext } from '../../api/index.js'
 const app = getApp()
 
 Page({
@@ -12,7 +12,8 @@ Page({
     classic: null,
     episode: {},
     latest: true,
-    first: false
+    first: false,
+    latestIndex: 0
   },
 
   /**
@@ -22,12 +23,63 @@ Page({
     getClassicLatest().then((res) => {
       console.log(res)
       this.setData({
-        classic: res
+        classic: res,
+        latestIndex: res.index
       })
       this._setEpisodeData(res.index)
     })
   },
 
+  
+  _setEpisodeData: function (val) {
+    const index = val < 10 ? '0' + val : val
+    const month = new Date().getMonth() + 1 + '月'
+    const year = new Date().getFullYear()
+    this.setData({
+      episode: {
+        index,
+        month,
+        year
+      }
+    })
+  },
+  leftClick () {
+    const index = this.data.classic.index
+    getClassicNext(index).then((res) => {
+      this._setPageData(res)
+    })
+  },
+  rightClick () {
+    const index = this.data.classic.index
+    getClassicPrevious(index).then((res) => {
+      this._setPageData(res)
+    })
+  },
+  _setPageData (res) {
+    console.log(res)
+    this.setData({
+      classic: res
+    })
+    this._setEpisodeData(res.index)
+    if (res.index === 1) {
+      this.setData({
+        first: true
+      })
+    } else {
+      this.setData({
+        first: false
+      })
+    }
+    if (res.index < this.data.latestIndex) {
+      this.setData({
+        latest: false
+      })
+    } else {
+      this.setData({
+        latest: true
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,23 +127,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  _setEpisodeData: function (val) {
-    const index = val < 10 ? '0' + val : val
-    const month = new Date().getMonth() + 1 + '月'
-    const year = new Date().getFullYear()
-    this.setData({
-      episode: {
-        index,
-        month,
-        year
-      }
-    })
-  },
-  leftClick () {
-    console.log('left')
-  },
-  rightClick () {
-    console.log('right')
   }
 })

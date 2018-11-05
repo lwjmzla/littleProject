@@ -2,5 +2,7 @@
   <v-episode class="episode" episode="{{episode}}"></v-episode>
   <v-like class="like" like="{{classic.like_status}}" count="{{classic.fav_nums}}" likeId="{{classic.id}}" likeType="{{classic.type}}"></v-like>
 </view>
-<v-movie img="{{classic.image}}" content='{{classic.content}}'></v-movie>
+<v-movie wx:if="{{classic.type === 100}}" img="{{classic.image}}" content='{{classic.content}}'></v-movie>
+<v-music wx:if="{{classic.type === 200}}" img="{{classic.image}}" content='{{classic.content}}'></v-music>
+<v-essay wx:if="{{classic.type === 300}}" img="{{classic.image}}" content='{{classic.content}}'></v-essay>
 <v-navi bind:left="leftClick" bind:right="rightClick"  class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}"></v-navi>
