@@ -19,6 +19,9 @@ Component({
     },
     likeType: {
       type: Number
+    },
+    index: {
+      type: Number
     }
   },
 
@@ -29,7 +32,6 @@ Component({
     likeSrc: './images/like.png',
     dislikeSrc: './images/like@dis.png'
   },
-
   /**
    * 组件的方法列表
    */
@@ -40,6 +42,7 @@ Component({
       let count = this.properties.count
       let like = this.properties.like
       let promise
+      wx.setStorageSync('classic_' + this.properties.index, '')
       if (like) {
         promise = reqLikeCancel(id, likeType)
       } else {

@@ -3,7 +3,7 @@
   height: 422rpx;
   margin-top: 60rpx;
   /* margin-bottom: 120rpx; */
-  border-radius: 70%;
+  border-radius: 50%;
   /* margin-bottom: -50px; */
   overflow: hidden;
 }

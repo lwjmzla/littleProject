@@ -27,10 +27,13 @@ Page({
         latestIndex: res.index
       })
       this._setEpisodeData(res.index)
+      wx.setStorageSync('classic_' + res.index, res)
     })
+    // const res = wx.getStorageSync('classic_' + 7)
+    // this._setPageData(res)
   },
 
-  
+  // 左上角那块 年月
   _setEpisodeData: function (val) {
     const index = val < 10 ? '0' + val : val
     const month = new Date().getMonth() + 1 + '月'
@@ -45,15 +48,25 @@ Page({
   },
   leftClick () {
     const index = this.data.classic.index
-    getClassicNext(index).then((res) => {
+    const res = wx.getStorageSync('classic_' + (index + 1))
+    if (res) {
       this._setPageData(res)
-    })
+    } else {
+      getClassicNext(index).then((res) => {
+        this._setPageData(res)
+      })
+    }
   },
   rightClick () {
     const index = this.data.classic.index
-    getClassicPrevious(index).then((res) => {
+    const res = wx.getStorageSync('classic_' + (index - 1))
+    if (res) {
       this._setPageData(res)
-    })
+    } else {
+      getClassicPrevious(index).then((res) => {
+        this._setPageData(res)
+      })
+    }
   },
   _setPageData (res) {
     console.log(res)
@@ -61,24 +74,14 @@ Page({
       classic: res
     })
     this._setEpisodeData(res.index)
-    if (res.index === 1) {
-      this.setData({
-        first: true
-      })
-    } else {
-      this.setData({
-        first: false
-      })
-    }
-    if (res.index < this.data.latestIndex) {
-      this.setData({
-        latest: false
-      })
-    } else {
-      this.setData({
-        latest: true
-      })
-    }
+    
+    const firstFlag = res.index === 1 ? true : false
+    const latestFlag = res.index < this.data.latestIndex ? false : true
+    this.setData({
+      first: firstFlag,
+      latest: latestFlag
+    })
+    wx.setStorageSync('classic_' + res.index, res)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
