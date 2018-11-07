@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    book: Object
   },
 
   /**
@@ -18,6 +18,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    onTap (ev) {
+      console.log(ev)
+    }
   }
 })
