@@ -12,3 +12,5 @@ export const reqLikeCancel = (art_id, type) => ajax('/like/cancel', { art_id, ty
 export const getClassicPrevious = (index) => ajax('/classic/' + index + '/previous')
 // 获取当前一期的下一期
 export const getClassicNext = (index) => ajax('/classic/' + index + '/next')
+// 获取热门书籍(概要)
+export const getBookHotList = () => ajax('/book/hot_list')
