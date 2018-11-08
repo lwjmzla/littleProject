@@ -14,3 +14,9 @@ export const getClassicPrevious = (index) => ajax('/classic/' + index + '/previo
 export const getClassicNext = (index) => ajax('/classic/' + index + '/next')
 // 获取热门书籍(概要)
 export const getBookHotList = () => ajax('/book/hot_list')
+// 获取书籍详细信息
+export const getBookDetail = (id) => ajax(`/book/${id}/detail`)
+// 获取书籍点赞情况
+export const getBookFavor = (id) => ajax(`/book/${id}/favor`)
+// 获取书籍短评
+export const getBookComment = (id) => ajax(`/book/${id}/short_comment`)

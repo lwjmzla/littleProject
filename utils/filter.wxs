@@ -1,0 +1,15 @@
+var format = function (text) {
+  // 一开始渲染的时候 text 为undefinded 之后 ajax得到数据后 text才有值
+  if (text) {
+    var reg = getRegExp('\\\\n', 'g') // 原来的 unicode编码 是 \\n  这里是 对2个斜杠 转义
+    return text.replace(reg, '\n&ensp;&ensp;&ensp;&ensp;')
+  }
+}
+var limit = function (arr, limitNum) {
+  return arr.slice(0, limitNum)
+}
+
+module.exports = {
+  format: format,
+  limit: limit
+}

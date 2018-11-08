@@ -1,18 +1,35 @@
 // pages/book-detail/index.js
+import { getBookDetail, getBookFavor, getBookComment } from '../../api/index.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    book: {},
+    comments: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const id = options.id
+    getBookDetail(id).then((res) => {
+      console.log(res)
+      this.setData({
+        book: res
+      })
+    })
+    getBookFavor(id).then((res) => {
+      console.log(res)
+    })
+    getBookComment(id).then((res) => {
+      console.log(res)
+      this.setData({
+        comments: res.comments
+      })
+    })
   },
 
   /**

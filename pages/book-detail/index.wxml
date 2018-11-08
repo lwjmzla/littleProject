@@ -1,2 +1,26 @@
-<!--pages/book-detail/index.wxml-->
-<text>pages/book-detail/index.wxml</text>
+<!-- 引入wxs 类似js es5版本  可以实现过滤器功能 -->
+<wxs module="util" src="../../utils/filter.wxs"></wxs>
+
+<view class='container'>
+  <view class="head">
+    <image src="{{book.image}}"></image>
+    <text class='title'>{{book.title}}</text>
+    <text class='author'>{{book.author}}</text>
+  </view>
+
+  <view class="sub-container">
+    <text class="headline">短评</text>
+    <text class="shadow" wx:if="{{!comments}}">还没有短评</text>
+    <view class="comment-container" wx:else>
+      <v-tag class="tag" wx:for="{{util.limit(comments, 10)}}" text="{{item.content}}" wx:key="index">
+        <text class='num' slot="after">{{'+' + item.nums}}</text>
+      </v-tag>
+    </view>
+  </view>
+
+  <view class="sub-container">
+    <text class="headline">内容简介</text>
+    <text class="content" decode='{{true}}'>{{util.format(book.summary)}}</text>
+  </view>
+
+</view>

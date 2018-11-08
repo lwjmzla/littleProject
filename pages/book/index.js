@@ -20,7 +20,7 @@ Page({
       })
     })
     // wx.navigateTo({
-    //   url: '/pages/book-detail/index'
+    //   url: '/pages/book-detail/index?id=1&name=lwj'
     // })
   },
 

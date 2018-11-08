@@ -4,6 +4,7 @@
 page{
   font-family: PingFangSC-Thin; 
   font-size:16px;
+  color: #464645;
 }
 
 .container {
