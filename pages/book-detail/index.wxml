@@ -23,4 +23,33 @@
     <text class="content" decode='{{true}}'>{{util.format(book.summary)}}</text>
   </view>
 
+  <view class="sub-container">
+    <text class="headline">书本信息</text>
+    <view class="detail-contaner">
+      <view class="vertical">
+        <text class="description">出版社</text>
+        <text class="description">出版年</text>
+        <text class="description">页数</text>
+        <text class="description">定价</text>
+        <text class="description">装帧</text>
+      </view>
+      <view class="vertical">
+        <text class="">{{book.publisher}}</text>
+        <text class="">{{book.pubdate}}</text>
+        <text class="">{{book.pages}}</text>
+        <text class="">{{book.price}}</text>
+        <text class="">{{book.binding}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="post-container">
+    <view class="post-fake" bind:tap="onFakePost">
+      <text>输入短评</text>
+    </view>
+    <view class='like-container'>
+      <v-like class="like" like="{{classic.like_status}}" count="{{classic.fav_nums}}" likeId="{{classic.id}}" likeType="{{classic.type}}"></v-like>
+    </view>
+  </view>
+
 </view>

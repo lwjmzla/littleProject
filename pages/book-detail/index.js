@@ -7,7 +7,13 @@ Page({
    */
   data: {
     book: {},
-    comments: []
+    comments: [],
+    classic: {
+      like_status: false,
+      fav_nums: 0,
+      id: null,
+      type: 400
+    }
   },
 
   /**
@@ -16,16 +22,25 @@ Page({
   onLoad: function (options) {
     const id = options.id
     getBookDetail(id).then((res) => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         book: res
       })
     })
     getBookFavor(id).then((res) => {
-      console.log(res)
+      // console.log(res)
+      const obj = {
+        like_status: res.like_status,
+        fav_nums: res.fav_nums,
+        id: res.id,
+        type: 400
+      }
+      this.setData({
+        classic: obj
+      })
     })
     getBookComment(id).then((res) => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         comments: res.comments
       })
