@@ -6,7 +6,12 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    more: {
+      type: String,
+      observer: function (newVal) {
+        console.log(newVal)
+      }
+    }
   },
 
   /**
@@ -53,7 +58,8 @@ Component({
       const searchVal = ev.detail.value
       this._setStorage(searchVal)
       getBookSearch({
-        q: searchVal
+        q: searchVal,
+        summary: 1
       }).then((res) => {
         this.setData({
           searchVal: searchVal,

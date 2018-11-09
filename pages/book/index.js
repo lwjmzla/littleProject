@@ -1,5 +1,6 @@
 // pages/book/index.js
 import { getBookHotList } from '../../api/index.js'
+import { random } from '../../utils/util.js'
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
    */
   data: {
     books: [],
-    searching: true
+    searching: true,
+    more: ''
   },
 
   /**
@@ -32,6 +34,15 @@ Page({
   onCancel () {
     this.setData({
       searching: false
+    })
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function (ev) {
+    this.setData({
+      more: random(16)
     })
   },
 
@@ -67,13 +78,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
   },
 
