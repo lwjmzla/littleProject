@@ -1,14 +1,10 @@
-// components/tag/tag.js
+// components/search/index.js
 Component({
   /**
    * 组件的属性列表
    */
-  options: {
-    multipleSlots: true
-  },
   properties: {
 
-    text: String
   },
 
   /**
@@ -22,8 +18,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onTap: function (event) {
-      this.triggerEvent('tapping', {value: this.properties.text})
-    }
+
   }
 })

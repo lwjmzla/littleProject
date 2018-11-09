@@ -20,3 +20,5 @@ export const getBookDetail = (id) => ajax(`/book/${id}/detail`)
 export const getBookFavor = (id) => ajax(`/book/${id}/favor`)
 // 获取书籍短评
 export const getBookComment = (id) => ajax(`/book/${id}/short_comment`)
+// 新增短评
+export const reqAddComment = (book_id, content) => ajax('/book/add/short_comment', { book_id, content }, 'POST')
