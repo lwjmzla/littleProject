@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    books: []
+    books: [],
+    searching: true
   },
 
   /**
@@ -22,6 +23,16 @@ Page({
     // wx.navigateTo({
     //   url: '/pages/book-detail/index?id=1&name=lwj'
     // })
+  },
+  onSearching () {
+    this.setData({
+      searching: true
+    })
+  },
+  onCancel () {
+    this.setData({
+      searching: false
+    })
   },
 
   /**

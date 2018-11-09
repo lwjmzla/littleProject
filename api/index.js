@@ -22,3 +22,12 @@ export const getBookFavor = (id) => ajax(`/book/${id}/favor`)
 export const getBookComment = (id) => ajax(`/book/${id}/short_comment`)
 // 新增短评
 export const reqAddComment = (book_id, content) => ajax('/book/add/short_comment', { book_id, content }, 'POST')
+// 书籍搜索
+export const getBookSearch = (obj) => ajax('/book/search', {
+  start: obj.start || 0, // 开始记录数
+  count: obj.count || 20, // 记录条数
+  summary: obj.summary || 0, // 0为完整内容,1为简介
+  q: obj.q, // 搜索内容 必填
+})
+// 获取热搜关键字
+export const getBookHotKeyword = () => ajax('/book/hot_keyword')
