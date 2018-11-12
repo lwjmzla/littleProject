@@ -25,4 +25,6 @@ export const random = function generateMixed(n) {
   return res;
 }
 
-
+export const trim = function (str) {   // 清除前后空格
+  return str.replace(/(^\s*)|(\s*$)/g, '')
+}

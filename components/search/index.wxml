@@ -10,7 +10,7 @@
     <view class='cancel' bind:tap="onCancel">取消</view>
   </view>
 
-  <view wx:if="{{!searchFinished}}">
+  <view wx:if="{{!searchFinished && !loadingFirst}}">
     <view class="history">
       <view class="title">
         <view class="chunk"></view>
@@ -34,4 +34,8 @@
   <view class="books-container" wx:if="{{searchFinished}}">
     <v-book wx:for="{{books}}" book="{{item}}" needLike="{{false}}" class="book" wx:key="id"></v-book>
   </view>
+  <text wx:if="{{empty}}" class="empty-tip">没有搜索到书籍</text>
+
+  <v-loading class="loadingFirst" wx:if="{{loadingFirst}}"></v-loading>
+  <v-loading class="loadingMore" wx:if="{{loadingMore}}"></v-loading>
 </view>

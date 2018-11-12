@@ -1,4 +1,5 @@
 import ajax from './ajax.js'
+import {countNum} from '../config.js'
 
 // ---------------   期刊   ---------------------
 // demo  export const getClassicLatest = () => ajax('/classic/latest', {xx:xx}, 'POST')
@@ -25,7 +26,7 @@ export const reqAddComment = (book_id, content) => ajax('/book/add/short_comment
 // 书籍搜索
 export const getBookSearch = (obj) => ajax('/book/search', {
   start: obj.start || 0, // 开始记录数
-  count: obj.count || 20, // 记录条数
+  count: obj.count || countNum, // 记录条数
   summary: obj.summary || 0, // 0为完整内容,1为简介
   q: obj.q, // 搜索内容 必填
 })

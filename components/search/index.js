@@ -1,5 +1,7 @@
 // components/search/index.js
 import { getBookSearch, getBookHotKeyword } from '../../api/index.js'
+import { countNum } from '../../config.js'
+import { trim } from '../../utils/util.js'
 
 Component({
   /**
@@ -8,9 +10,7 @@ Component({
   properties: {
     more: {
       type: String,
-      observer: function (newVal) {
-        console.log(newVal)
-      }
+      observer: '_loadMore'
     }
   },
 
@@ -22,7 +22,13 @@ Component({
     hotKeys: [],
     historyKeys: [],
     searchFinished: false,
-    books: []
+    books: [],
+    moreBooks: [],
+    start: 0,
+    total: null,
+    loadingMore: false,
+    loadingFirst: false,
+    empty: false
   },
   attached () {
     this._getBookHistory()
@@ -54,19 +60,50 @@ Component({
     onPost (ev) {
       this._searchBook(ev)
     },
+    _initSearch(searchVal) {
+      this.setData({
+        searchVal,
+        start: 0,
+        loadingFirst: true,
+        empty: false
+      })
+    },
     _searchBook (ev) {
       const searchVal = ev.detail.value
-      this._setStorage(searchVal)
+      if (trim(searchVal) === '') {
+        wx.showToast({
+          title: '书籍名不能为空',
+          icon: 'none',
+          duration: 2000
+        })
+        return
+      }
+      this._initSearch(searchVal)
+      this._setStorage(searchVal) // 保存历史搜索记录
       getBookSearch({
         q: searchVal,
-        summary: 1
+        summary: 1,
+        start: this.data.start
       }).then((res) => {
         this.setData({
           searchVal: searchVal,
           books: res.books,
-          searchFinished: true
+          searchFinished: true,
+          start: countNum,
+          total: res.total,
+          loadingFirst: false
         })
-        console.log(res)
+        if (res.books.length === 0) {
+          this.setData({
+            empty: true
+          })
+        }
+        // console.log(res)
+      }).catch((err) => {
+        console.log(err)
+        this.setData({
+          loadingFirst: false
+        })
       })
     },
     _getBookHistory () {
@@ -84,6 +121,35 @@ Component({
       } else {
         wx.setStorageSync('__SEARCH__', [searchVal])
       }
+    },
+    _loadMore () {
+      if (this.data.start >= this.data.total) {
+        console.log('没有结果了')
+        return
+      }
+      if (this.data.loadingMore) {
+        return
+      }
+      this.setData({
+        loadingMore: true
+      })
+      getBookSearch({
+        q: this.data.searchVal,
+        summary: 1,
+        start: this.data.start
+      }).then((res) => {
+        console.log(res)
+        const allBooks = this.data.books.concat(res.books)
+        this.setData({
+          books: allBooks,
+          start: this.data.start + countNum,
+          loadingMore: false
+        })
+      }).catch(() => {
+        this.setData({
+          loadingMore: false
+        })
+      })
     }
   }
 })

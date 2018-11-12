@@ -150,3 +150,20 @@
 .test {
   background-color: #000;
 }
+
+.loadingFirst{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.loadingMore {
+  margin: 50rpx 0;
+}
