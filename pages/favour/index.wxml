@@ -1,2 +1,6 @@
-<!--pages/favour/index.wxml-->
-<text>pages/favour/index.wxml</text>
+<scroll-view class="box" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-y="true" style="height:{{scrollWrapHeight}}px;" 
+scroll-top="100">
+  <view class="box-item" style='height:500rpx;'>1</view>
+  <view class="box-item" >2</view>
+  <view class="box-item" >3</view>
+</scroll-view>

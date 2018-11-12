@@ -41,9 +41,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function (ev) {
-    this.setData({
-      more: random(16)
-    })
+    // this.setData({
+    //   more: random(16)
+    // })
   },
 
   /**

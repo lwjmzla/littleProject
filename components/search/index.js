@@ -8,10 +8,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    more: {
-      type: String,
-      observer: '_loadMore'
-    }
+    // more: {
+    //   type: String,
+    //   // observer: '_loadMore'
+    // }
   },
 
   /**
@@ -38,6 +38,16 @@ Component({
         hotKeys: res.hot
       })
     })
+    var that = this;
+    //获取系统的参数，scrollHeight数值,微信必须要设置style:height才能监听滚动事件
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          scrollWrapHeight: parseInt(res.windowHeight)
+        })
+      }
+    });
   },
 
   /**
@@ -150,6 +160,10 @@ Component({
           loadingMore: false
         })
       })
-    }
+    },
+    lower: function (e) {
+      // console.log(e)
+      this._loadMore()
+    },
   }
 })

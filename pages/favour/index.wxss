@@ -1,1 +1,11 @@
-/* pages/favour/index.wxss */
+.box {
+    width:100vw;
+    height: 1000rpx;
+    box-sizing: border-box;
+}
+.box-item {
+    width: 45%;
+    height:1000rpx;
+    border:2rpx solid green;
+    box-sizing: border-box;
+}
