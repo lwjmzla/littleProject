@@ -27,7 +27,6 @@ Page({
     })
     this._getProList()
     // console.log(wx.getSystemInfoSync())
-    
   },
   toDetail: function (e) {
     // console.log(e)
