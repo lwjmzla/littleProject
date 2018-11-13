@@ -1,30 +1,41 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/detail/detail",
-    "pages/join/join",
-    "pages/logs/logs"
+    "pages/book/index",
+    "pages/my/index",
+    "pages/book-detail/index",
+    "pages/about/index",
+    "pages/course/index",
+    "pages/classic-detail/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#2E5E86",
-    "navigationBarTitleText": "信贷DEMO",
-    "navigationBarTextStyle":"white"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "旧岛小样",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#2E5E86",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "color": "#c7c7c7",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "images/ic_home_normal.png",
-        "selectedIconPath": "images/ic_home_pressed.png"
+        "text": "流行",
+        "iconPath": "/images/tab/classic.png",
+        "selectedIconPath": "/images/tab/classic@highlight.png"
       },
       {
-        "pagePath": "pages/join/join",
-        "text": "加入",
-        "iconPath": "images/ic_join_normal.png",
-        "selectedIconPath": "images/ic_join_pressed.png"
+        "pagePath": "pages/book/index",
+        "text": "书单",
+        "iconPath": "/images/tab/book.png",
+        "selectedIconPath": "/images/tab/book@highlight.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "喜欢",
+        "iconPath": "/images/tab/my.png",
+        "selectedIconPath": "/images/tab/my@highlight.png"
       }
     ]
   }

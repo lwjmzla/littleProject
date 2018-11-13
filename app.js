@@ -11,7 +11,7 @@ App({
       success: (res) => {
         var latitude = res.latitude // 经度
         var longitude = res.longitude // 纬度
-        console.log(latitude, longitude)
+        // console.log(latitude, longitude)
       }
     })
 
@@ -43,6 +43,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo1: 'user'
   }
 })
