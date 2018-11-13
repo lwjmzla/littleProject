@@ -2,8 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/book/index",
-    "pages/favour/index",
-    "pages/book-detail/index"
+    "pages/my/index",
+    "pages/book-detail/index",
+    "pages/about/index",
+    "pages/course/index",
+    "pages/classic-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,7 +32,7 @@
         "selectedIconPath": "/images/tab/book@highlight.png"
       },
       {
-        "pagePath": "pages/favour/index",
+        "pagePath": "pages/my/index",
         "text": "喜欢",
         "iconPath": "/images/tab/my.png",
         "selectedIconPath": "/images/tab/my@highlight.png"

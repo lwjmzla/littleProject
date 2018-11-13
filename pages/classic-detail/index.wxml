@@ -9,6 +9,5 @@
 </view>
 <v-movie wx:if="{{classic.type === 100}}" img="{{classic.image}}" content='{{classic.content}}'></v-movie>
 <v-music wx:if="{{classic.type === 200}}" img="{{classic.image}}" content='{{classic.content}}' musicSrc="{{classic.url}}"></v-music>
-<!-- <v-music hidden="{{classic.type !== 200}}" img="{{classic.image}}" content='{{classic.content}}' musicSrc="{{classic.url}}"></v-music> -->
 <v-essay wx:if="{{classic.type === 300}}" img="{{classic.image}}" content='{{classic.content}}'></v-essay>
-<v-navi bind:left="leftClick" bind:right="rightClick"  class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}"></v-navi>
+<!-- <v-navi bind:left="leftClick" bind:right="rightClick"  class="navi" title="{{classic.title}}" latest="{{latest}}" first="{{first}}"></v-navi> -->

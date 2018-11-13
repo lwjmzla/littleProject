@@ -49,6 +49,9 @@
     </view>
     <view class='like-container'>
       <v-like class="like" like="{{classic.like_status}}" count="{{classic.fav_nums}}" likeId="{{classic.id}}" likeType="{{classic.type}}"></v-like>
+      <button  open-type="share"  class="share-btn">
+        <image slot="img" class="share" src="/images/icon/share.png" /> 
+      </button>
     </view>
   </view>
 

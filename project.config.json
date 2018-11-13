@@ -52,7 +52,7 @@
 				{
 					"id": 2,
 					"name": "book",
-					"pathName": "pages/book/index",
+					"pathName": "pages/my/index",
 					"query": ""
 				}
 			]

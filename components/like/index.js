@@ -22,7 +22,8 @@ Component({
     },
     index: {
       type: Number
-    }
+    },
+    readonlyed: Boolean
   },
 
   /**
@@ -37,6 +38,9 @@ Component({
    */
   methods: {
     onLike (ev) {
+      if (this.properties.readonlyed) {
+        return
+      }
       const id = this.properties.likeId
       const likeType = this.properties.likeType
       let count = this.properties.count

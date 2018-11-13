@@ -1,4 +1,4 @@
-// pages/favour/index.js
+// pages/about/index.js
 Page({
 
   /**

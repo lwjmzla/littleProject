@@ -32,3 +32,9 @@ export const getBookSearch = (obj) => ajax('/book/search', {
 })
 // 获取热搜关键字
 export const getBookHotKeyword = () => ajax('/book/hot_keyword')
+// 获取喜欢书籍数量
+export const getBookFavorCount = () => ajax('/book/favor/count')
+// 获取我喜欢的期刊
+export const getClassicFavor = () => ajax('/classic/favor')
+// 获取某一期详细信息
+export const getClassicFromTypeId = (type, id) => ajax(`/classic/${type}/${id}`)

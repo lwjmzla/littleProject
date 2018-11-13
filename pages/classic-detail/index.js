@@ -1,51 +1,49 @@
-// pages/book/index.js
-import { getBookHotList } from '../../api/index.js'
-import { random } from '../../utils/util.js'
+//index.js
+//获取应用实例
+import { getClassicFromTypeId } from '../../api/index.js'
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    books: [],
-    searching: false,
-    more: ''
+    classic: null,
+    episode: {},
+    latest: true,
+    first: false,
+    latestIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getBookHotList().then((res) => {
+    let type = options.type
+    let cid = options.cid
+    getClassicFromTypeId(type, cid).then((res) => {
       console.log(res)
       this.setData({
-        books: res
+        classic: res
       })
-    })
-    // wx.navigateTo({
-    //   url: '/pages/book-detail/index?id=1&name=lwj'
-    // })
-  },
-  onSearching () {
-    this.setData({
-      searching: true
-    })
-  },
-  onCancel () {
-    this.setData({
-      searching: false
+      this._setEpisodeData(res.index)
     })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function (ev) {
+  // 左上角那块 年月
+  _setEpisodeData: function (val) {
+    const index = val < 10 ? '0' + val : val
+    const month = new Date().getMonth() + 1 + '月'
+    const year = new Date().getFullYear()
     this.setData({
-      more: random(16)
+      episode: {
+        index,
+        month,
+        year
+      }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -78,6 +76,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
 
   },
 
