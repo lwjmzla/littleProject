@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"index.js","sourcesContent":["const authorInfo = {\r\n  name: 'LWJ',\r\n  age: '18+',\r\n  position: 'Front-End Web Developer',\r\n  country: 'China',\r\n  district: 'GuangDong Province, Guangzhou City'\r\n}\r\n\r\nmodule.exports = authorInfo"]}
