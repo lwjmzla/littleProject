@@ -15,6 +15,9 @@ App({
       }
     })
 
+    const LWJ = require('lwj-info')
+    console.log(LWJ)
+
     // 登录
     wx.login({
       success: res => {
